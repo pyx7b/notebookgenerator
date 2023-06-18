@@ -1,0 +1,34 @@
+To display a map of the USA with population data, we can use the `folium` package in Python. Here's an example code:
+
+```python
+import folium
+import pandas as pd
+
+# Load population data
+pop_data = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_us_cities.csv')
+pop_data['pop'] = pop_data['pop'].astype(float)
+
+# Define map center and zoom level
+map_center = [37.0902, -95.7129]
+zoom_level = 4
+
+# Create map object
+map_usa = folium.Map(location=map_center, zoom_start=zoom_level)
+
+# Add population markers to map
+for index, row in pop_data.iterrows():
+    folium.CircleMarker(location=[row['lat'], row['lon']],
+                        radius=row['pop']/20000,
+                        color='blue',
+                        fill=True,
+                        fill_color='blue',
+                        fill_opacity=0.5,
+                        tooltip=row['name']+"<br>"+str(row['pop'])+" population").add_to(map_usa)
+
+# Display map
+map_usa
+```
+
+This code uses a dataset of US cities with their population data from the Plotly library and plots them as circle markers on the map. The size of the markers is proportional to the population of the city.
+
+You can customize the map by changing the `map_center` and `zoom_level` variables to focus on different regions of the USA. You can also change the color and size of the markers to suit your needs.
