@@ -33,7 +33,7 @@ except IndexError:
     prompt = TEST_PROMPT
 
 # uncomment this line to read from file
-#src = read_file("source.txt")
+#result = read_file("source.txt")
 
 #Call OpenAI service to get result and store in result variable
 result = get_chat_response(prompt)
