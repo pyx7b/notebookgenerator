@@ -3,7 +3,7 @@ Generate Jupyter notebook for datascience using Azure Open AI.
 
 
 # Inital setup
-1. Clone the repo:
+1. Clone this repo:
 ```
 git clone https://github.com/pyx7b/notebookgenerator.git
 ```
